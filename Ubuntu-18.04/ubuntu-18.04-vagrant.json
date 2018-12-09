@@ -1,7 +1,7 @@
 {
     "builders": [
         {
-            "type": "virtualbox-iso",
+            "type": "vmware-iso",
             "boot_command": [
                 "<esc><wait>",
                 "<esc><wait>",
@@ -29,7 +29,7 @@
             ],
             "boot_wait": "10s",
             "disk_size": 81920,
-            "guest_os_type": "Ubuntu_64",
+            "guest_os_type": "other",
             "headless": false,
             "http_directory": "http",
             "iso_urls": [
@@ -43,23 +43,7 @@
             "ssh_port": 22,
             "ssh_wait_timeout": "10000s",
             "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-            "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-            "virtualbox_version_file": ".vbox_version",
-            "vm_name": "packer-ubuntu-18.04.1-amd64",
-            "vboxmanage": [
-            [
-                "modifyvm",
-                "{{.Name}}",
-                "--memory",
-                "1024"
-            ],
-            [
-                "modifyvm",
-                "{{.Name}}",
-                "--cpus",
-                "1"
-            ]
-            ]
+            "vm_name": "packer-ubuntu-18.04.1-amd64"
         }
     ],
     "provisioners": [
